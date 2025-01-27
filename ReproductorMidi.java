@@ -32,20 +32,7 @@ class ReproductorMidi {
         sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
     }
 
-    public void subirVolumen(int incremento) {
-        if (synthesizer != null) {
-            MidiChannel[] canales = synthesizer.getChannels();
-            for (MidiChannel canal : canales) {
-                if (canal != null) {
-                    int volumenActual = canal.getController(7); // Controlador 7 = volumen principal
-                    int nuevoVolumen = Math.min(volumenActual + incremento, 127); // El volumen máximo en MIDI es 127
-                    canal.controlChange(7, nuevoVolumen);
-                }
-            }
-        } else {
-            System.out.println("No se puede ajustar el volumen. El sintetizador no está disponible.");
-        }
-    }
+   
 
     void cerrar() {
         if (synthesizer != null) {
