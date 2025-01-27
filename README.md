@@ -31,7 +31,7 @@ Puedes hacer una primera versión sin música ni dibujo para centrarte en la ló
 
 
 ## REQUISITOS
-Se entrega proyecto que contiene código y un video de ejecución.  
+Se entrega proyecto que contiene código y un video de ejecución EN CONSOLA.  
 
 
 ## VIDEO
