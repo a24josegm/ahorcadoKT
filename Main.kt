@@ -1,9 +1,11 @@
 package Programacion01.Ahorcado
+//import Programacion01.Ahorcado.ReproductorMidi
+//import Programacion01.Ahorcado.DibujoAhorcado
 
 fun main() {
 
     // Crear instancia del reproductor MIDI
-    val reproductor = ReproductorMidi("src/Programacion01/Ahorcado/pugnodollari.mid")
+    val reproductor = ReproductorMidi("pugnodollari.mid") //src/Programacion01/Ahorcado/pugnodollari.mid
     println("Cargando el Juego")
     Thread.sleep(2000)
 
@@ -26,17 +28,9 @@ fun main() {
             if (palabraSecreta.contains(letra)) {
                 letrasAdivinadas.add(letra)
 
-                var todasLetrasAdivinadas = true // Asumimos que todas las letras han sido adivinadas
-                for (letra in palabraSecreta) {
-                    if (!letrasAdivinadas.contains(letra)) {
-                        todasLetrasAdivinadas = false // Encontramos una letra que no ha sido adivinada
-                        break // Salimos del bucle porque no es necesario seguir comprobando
-                    }
-                }
-
-                if (todasLetrasAdivinadas) {
+                if (palabraSecreta.all { letrasAdivinadas.contains(it) }) {
                     println("¡Felicidades, adivinaste la palabra!")
-                    // Otras acciones cuando el usuario adivina la palabra
+                    break
                 }
 
             } else {
@@ -53,8 +47,5 @@ fun main() {
     reproductor.cerrar()
 }
 /*
-if (palabraSecreta.all { letrasAdivinadas.contains(it) }) {
-    println("¡Felicidades, adivinaste la palabra!")
-    break
-}
+
  */
